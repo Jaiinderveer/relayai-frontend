@@ -68,10 +68,18 @@ export default function Contacts() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormError('');
-    if (!formData.name.trim() || !formData.phone.trim()) {
+
+    const phoneTrimmed = formData.phone.trim();
+    const nameTrimmed = formData.name.trim();
+
+    // 1. Check for empty fields
+    if (!nameTrimmed || !phoneTrimmed) {
       setFormError('Name and phone are required.');
       return;
     }
+
+    // 2. Check for minimum length OR invalid characters 
+    // The regex /^\+?\d+$/ means: optional '+' at the start, followed only by numbers
     else if (phoneTrimmed.length < 10 || !/^\+?\d+$/.test(phoneTrimmed)) {
       setFormError('Phone Number Invalid. Must be at least 10 digits.');
       return;

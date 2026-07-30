@@ -1,32 +1,38 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist, createJSONStorage } from 'zustand/middleware';
 
 export const useChatStore = create(
   persist(
     (set) => ({
       messages: [],
       inputValue: '',
-      setMessages: (newMessages) => set({ 
-        messages: Array.isArray(newMessages) ? newMessages : [] 
+      setMessages: (newMessages) => set({
+        messages: Array.isArray(newMessages) ? newMessages : []
       }),
       setInputValue: (inputValue) => set({ inputValue }),
-      addMessage: (message) => set((state) => ({ 
-        messages: Array.isArray(state.messages) ? [...state.messages, message] : [message] 
+      addMessage: (message) => set((state) => ({
+        messages: Array.isArray(state.messages) ? [...state.messages, message] : [message]
       })),
     }),
-    { 
+    {
       name: 'relay-chat-storage',
-      version: 1,
-      migrate: (persistedState, version) => {
-        if (!persistedState) return { messages: [], inputValue: '' };
+      storage: createJSONStorage(() => sessionStorage),
 
-        if (!Array.isArray(persistedState.messages)) {
+      version: 1,
+
+      migrate: (persistedState) => {
+        if (!persistedState)
+          return {
+            messages: [],
+            inputValue: ''
+          };
+
+        if (!Array.isArray(persistedState.messages))
           persistedState.messages = [];
-        }
-        if (typeof persistedState.inputValue !== 'string') {
+
+        if (typeof persistedState.inputValue !== 'string')
           persistedState.inputValue = '';
-        }
-        
+
         return persistedState;
       }
     }

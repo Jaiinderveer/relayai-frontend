@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist, createJSONStorage } from 'zustand/middleware';
 
 export const useAnalyticsStore = create(
   persist(
@@ -14,6 +14,7 @@ export const useAnalyticsStore = create(
     }),
     { 
       name: 'relay-analytics-storage',
+      storage: createJSONStorage(() => sessionStorage),
       version: 1, // Store versioning introduced
       migrate: (persistedState, version) => {
         // If versions mismatch or state is corrupted, intercept and repair

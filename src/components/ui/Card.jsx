@@ -15,9 +15,8 @@ export default function Card({
 }) {
   return (
     <Tag
-      className={`bg-surface-2 border border-border rounded-ds-lg shadow-ds-sm ${padding} ${
-        hover ? 'transition-all duration-200 hover:border-accent hover:-translate-y-0.5' : ''
-      } ${glow ? 'hover:shadow-glow' : ''} ${className}`}
+      className={`bg-surface-2 border border-border rounded-ds-lg shadow-ds-sm ${padding} ${hover ? 'transition-all duration-200 hover:border-accent hover:-translate-y-0.5' : ''
+        } ${glow ? 'hover:shadow-glow' : ''} ${className}`}
       {...rest}
     >
       {children}

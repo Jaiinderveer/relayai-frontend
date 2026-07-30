@@ -28,18 +28,17 @@ export default function TopBar({ onMenuClick }) {
       subtitle={current.sub}
       badge={
         <div className="flex items-center gap-2">
-          {/* Workspace search — visual only, not wired to a data source */}
           
 
           <button
-            className="p-2 rounded-full text-text-3 hover:bg-surface-2 hover:text-text-1 transition-colors cursor-pointer"
+            className="ds-focus-ring p-2 rounded-full text-text-3 hover:bg-surface-2 hover:text-text-1 transition-colors cursor-pointer active:scale-95"
             aria-label="Notifications"
           >
             <Bell size={16} />
           </button>
 
           <button
-            className="p-1 rounded-full text-text-3 hover:text-text-1 transition-colors cursor-pointer"
+            className="ds-focus-ring p-1 rounded-full text-text-3 hover:text-text-1 transition-colors cursor-pointer active:scale-95"
             aria-label="Profile"
           >
             <CircleUserRound size={26} />
@@ -52,7 +51,7 @@ export default function TopBar({ onMenuClick }) {
           {/* Mobile nav toggle */}
           <button
             onClick={onMenuClick}
-            className="lg:hidden p-2 rounded-full text-text-3 hover:bg-surface-2 hover:text-text-1 transition-colors cursor-pointer"
+            className="ds-focus-ring lg:hidden p-2 rounded-full text-text-3 hover:bg-surface-2 hover:text-text-1 transition-colors cursor-pointer active:scale-95"
             aria-label="Open navigation"
           >
             <Menu size={18} />

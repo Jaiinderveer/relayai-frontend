@@ -16,7 +16,7 @@ const navItems = [
  *   - `collapsed`: desktop icon-rail toggle
  *   - `isOpen`/`onClose` (props from AppLayout): mobile overlay drawer
  */
-export default function Sidebar({ isOpen = false, onClose = () => {} }) {
+export default function Sidebar({ isOpen = false, onClose = () => { } }) {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
@@ -51,7 +51,7 @@ export default function Sidebar({ isOpen = false, onClose = () => {} }) {
           {/* Mobile close button */}
           <button
             onClick={onClose}
-            className="lg:hidden text-text-3 hover:text-text-1 transition-colors cursor-pointer shrink-0"
+            className="ds-focus-ring lg:hidden text-text-3 hover:text-text-1 transition-colors cursor-pointer shrink-0"
             aria-label="Close navigation"
           >
             <X size={18} />
@@ -72,10 +72,9 @@ export default function Sidebar({ isOpen = false, onClose = () => {} }) {
                 onClick={onClose}
                 title={collapsed ? item.name : undefined}
                 className={({ isActive }) =>
-                  `group flex items-center gap-3 px-3 py-2.5 rounded-ds-sm text-sm font-medium transition-all duration-150 ${
-                    isActive
-                      ? 'bg-accent-soft text-text-1 shadow-[inset_2.5px_0_0_#3B82F6]'
-                      : 'text-text-2 hover:bg-surface-2 hover:text-text-1'
+                  `ds-focus-ring group flex items-center gap-3 px-3 py-2.5 rounded-ds-sm text-sm font-medium transition-all duration-150 ${isActive
+                    ? 'bg-accent-soft text-text-1 shadow-[inset_2.5px_0_0_#3B82F6]'
+                    : 'text-text-2 hover:bg-surface-2 hover:text-text-1'
                   }`
                 }
               >
@@ -92,7 +91,7 @@ export default function Sidebar({ isOpen = false, onClose = () => {} }) {
         <div className="hidden lg:flex px-3 pb-2">
           <button
             onClick={() => setCollapsed((c) => !c)}
-            className="w-full flex items-center justify-center gap-2 py-2 rounded-ds-sm text-text-3 hover:bg-surface-2 hover:text-text-1 transition-colors cursor-pointer"
+            className="ds-focus-ring w-full flex items-center justify-center gap-2 py-2 rounded-ds-sm text-text-3 hover:bg-surface-2 hover:text-text-1 transition-colors cursor-pointer"
             aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
           >
             {collapsed ? <ChevronRight size={15} /> : <ChevronLeft size={15} />}

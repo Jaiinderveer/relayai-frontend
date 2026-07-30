@@ -56,16 +56,14 @@ export default function ChatBubble({ role, content, isTyping = false, timestamp 
 
   return (
     <div
-      className={`group flex gap-3.5 px-4 py-4 mb-3 rounded-ds-lg animate-ds-fade-in transition-colors duration-150 ${
-        isUser
+      className={`group flex gap-3.5 px-4 py-4 mb-3 rounded-ds-lg animate-ds-fade-in transition-colors duration-150 ${isUser
           ? 'bg-surface-2 border border-border'
           : 'bg-[#161B22]/40 border border-border border-l-[3px] border-l-accent pl-5 hover:bg-[#161B22]/60'
-      }`}
+        }`}
     >
       <div
-        className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center shadow-[0_0_0_2px_var(--color-surface),0_0_0_3px_var(--color-border)] ${
-          isUser ? 'bg-surface-3 text-text-3' : 'bg-gradient-to-br from-accent to-blue-700 text-white'
-        }`}
+        className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center shadow-[0_0_0_2px_var(--color-surface),0_0_0_3px_var(--color-border)] ${isUser ? 'bg-surface-3 text-text-3' : 'bg-gradient-to-br from-accent to-blue-700 text-white'
+          }`}
       >
         {isUser ? <User size={15} strokeWidth={2.25} /> : <Bot size={15} strokeWidth={2.25} />}
       </div>

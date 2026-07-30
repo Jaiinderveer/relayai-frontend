@@ -10,6 +10,7 @@ import SectionHeader from '../components/ui/SectionHeader';
 import ActionButton from '../components/ui/ActionButton';
 import EmptyState from '../components/ui/EmptyState';
 import LoadingState from '../components/ui/LoadingState';
+import AnimatedContainer from '../components/ui/AnimatedContainer';
 
 // Sub-component to lazily fetch transcript only when expanded — unchanged logic
 function TranscriptViewer({ conversationId }) {
@@ -73,9 +74,9 @@ export default function LiveMonitor() {
     <div className="flex flex-col gap-6">
       {/* Stat Strip */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <MetricCard icon={ListOrdered} label="Queue Depth" value={pendingCalls.length} accent="warning" />
-        <MetricCard icon={CheckCircle2} label="Completed Calls" value={completedCalls.length} accent="success" />
-        <MetricCard icon={Radio} label="Monitoring" value="Live" accent="accent" />
+        <AnimatedContainer delay={0}><MetricCard icon={ListOrdered} label="Queue Depth" value={pendingCalls.length} accent="warning" /></AnimatedContainer>
+        <AnimatedContainer delay={60}><MetricCard icon={CheckCircle2} label="Completed Calls" value={completedCalls.length} accent="success" /></AnimatedContainer>
+        <AnimatedContainer delay={120}><MetricCard icon={Radio} label="Monitoring" value="Live" accent="accent" /></AnimatedContainer>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-6 mt-2">
@@ -144,7 +145,9 @@ export default function LiveMonitor() {
                     <Card padding="p-0" className="overflow-hidden">
                       <button
                         onClick={() => setExpandedCallId(isExpanded ? null : task._id)}
-                        className="w-full flex justify-between items-center p-4 hover:bg-surface-3/60 transition-colors text-left cursor-pointer"
+                        aria-expanded={isExpanded}
+                        aria-label={`${isExpanded ? 'Collapse' : 'Expand'} details for ${task.title || 'call'} with ${task.contact_name}`}
+                        className="ds-focus-ring w-full flex justify-between items-center p-4 hover:bg-surface-3/60 transition-colors text-left cursor-pointer"
                       >
                         <div className="flex items-center gap-2 min-w-0">
                           <PhoneCall size={14} className="text-text-3 shrink-0" />

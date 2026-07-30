@@ -131,6 +131,7 @@ export default function Contacts() {
                 <input
                   type="text"
                   placeholder="Search name or phone..."
+                  aria-label="Search contacts"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="bg-transparent border-none text-[12px] text-text-1 placeholder-text-4 focus:outline-none w-36"

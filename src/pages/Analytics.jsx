@@ -86,7 +86,7 @@ export default function Analytics() {
     <div className="flex h-full min-h-0 flex-col">
 
       {/* ================= TOP ANALYTICS ================= */}
-      <div className="flex-1 min-h-0 overflow-y-auto custom-scrollbar pr-2">
+      <div className="flex-1 min-h-0 overflow-y-auto custom-scrollbar">
         <div className="flex flex-col gap-6 pb-6">
 
           {/* KPI Grid */}
@@ -236,12 +236,12 @@ export default function Analytics() {
 
         <Card
           padding="p-0"
-          className="relative flex flex-col h-[340px] overflow-hidden"
+          className="flex flex-col min-h-0 max-h-[45vh] overflow-hidden"
         >
 
           <div
             ref={scrollRef}
-            className="flex-1 overflow-y-auto p-4 pb-24 custom-scrollbar"
+            className="flex-1 min-h-0 overflow-y-auto p-4 custom-scrollbar"
           >
             {messages.length === 0 ? (
               <div className="text-center py-10 text-text-4 text-sm flex flex-col items-center gap-2">
@@ -272,7 +272,7 @@ export default function Analytics() {
               e.preventDefault();
               handleSend();
             }}
-            className="absolute bottom-0 left-0 right-0 p-3 border-t border-border bg-surface flex items-center gap-1"
+            className="shrink-0 p-3 border-t border-border bg-surface flex items-center gap-1"
           >
             <input
               type="text"
@@ -288,10 +288,10 @@ export default function Analytics() {
               onClick={toggleListening}
               title={isSupported ? "Click to dictate" : "Voice not supported"}
               className={`p-2 rounded-full transition-all duration-150 cursor-pointer outline-none ${!isSupported
-                  ? "opacity-30 cursor-not-allowed"
-                  : isListening
-                    ? "text-danger bg-danger-soft animate-pulse"
-                    : "text-text-2 hover:bg-surface-2 hover:text-text-1"
+                ? "opacity-30 cursor-not-allowed"
+                : isListening
+                  ? "text-danger bg-danger-soft animate-pulse"
+                  : "text-text-2 hover:bg-surface-2 hover:text-text-1"
                 }`}
             >
               <Mic size={16} strokeWidth={2.25} />

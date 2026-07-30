@@ -68,7 +68,10 @@ export default function Contacts() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormError('');
-
+    if(!isNumber(formData.phone) && formData.phone.length < 10){
+      setFormError('Phone Number Invalid');
+      return;
+    }
     if (!formData.name.trim() || !formData.phone.trim()) {
       setFormError('Name and phone are required.');
       return;

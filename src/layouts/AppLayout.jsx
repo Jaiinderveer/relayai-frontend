@@ -24,7 +24,7 @@ import AnimatedContainer from '../components/ui/AnimatedContainer';
  * internal scroll regions — while pages that don't (Contacts, Live
  * Monitor, Agentic Chat) keep exactly the same page-level scroll
  * behavior as before, via main's own overflow-y-auto as a fallback.
- */
+ */ 
 export default function AppLayout() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const location = useLocation();

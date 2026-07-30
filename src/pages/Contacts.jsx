@@ -234,6 +234,7 @@ export default function Contacts() {
                 disabled={isEditing}
                 placeholder="e.g., John Doe"
                 className="w-full bg-surface border border-border rounded-ds-sm px-3 py-2 text-sm text-text-1 focus:outline-none focus:border-accent transition-colors disabled:opacity-50"
+                required
               />
               {isEditing && <p className="text-[10px] text-text-4 mt-1">Name cannot be changed while editing.</p>}
             </div>
@@ -247,6 +248,7 @@ export default function Contacts() {
                 onChange={handleInputChange}
                 placeholder="e.g., +1234567890"
                 className="w-full bg-surface border border-border rounded-ds-sm px-3 py-2 text-sm text-text-1 focus:outline-none focus:border-accent transition-colors font-mono"
+                required  
               />
             </div>
 

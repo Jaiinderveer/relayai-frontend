@@ -72,8 +72,8 @@ export default function Contacts() {
       setFormError('Name and phone are required.');
       return;
     }
-    elif(!isNumber(formData.phone) && formData.phone.length < 10){
-      setFormError('Phone Number Invalid');
+    else if (phoneTrimmed.length < 10 || !/^\+?\d+$/.test(phoneTrimmed)) {
+      setFormError('Phone Number Invalid. Must be at least 10 digits.');
       return;
     }
 

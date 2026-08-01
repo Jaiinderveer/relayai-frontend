@@ -124,7 +124,7 @@ export default function Contacts() {
   return (
     <div className="flex flex-col lg:flex-row gap-8">
       {/* Left Column: Contact Table */}
-      <div className="flex-[2] min-w-0">
+      <div className="flex-2 min-w-0">
         <SectionHeader
           action={
             <div className="flex items-center gap-2">

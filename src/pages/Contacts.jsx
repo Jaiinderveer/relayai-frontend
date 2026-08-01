@@ -155,7 +155,7 @@ export default function Contacts() {
         </SectionHeader>
 
         <Card padding="p-0" className="overflow-hidden">
-          <div className="max-h-[560px] overflow-y-auto custom-scrollbar">
+          <div className="max-h-140 overflow-y-auto custom-scrollbar">
             <table className="w-full text-sm border-collapse">
               <thead className="sticky top-0 bg-surface-2 z-10">
                 <tr className="border-b border-border">

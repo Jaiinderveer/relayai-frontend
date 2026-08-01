@@ -14,7 +14,7 @@ export default function MetricCard({ icon: Icon, label, value, trend, accent = '
   const trendColor = trend == null ? 'text-text-4' : trend > 0 ? 'text-success' : trend < 0 ? 'text-danger' : 'text-text-4';
 
   return (
-    <div className="group bg-gradient-to-b from-surface-2 to-surface border border-border p-5 rounded-ds-lg shadow-ds-sm transition-all duration-200 hover:border-accent hover:-translate-y-0.5 hover:shadow-glow">
+    <div className="group bg-gradient-to-b from-surface-2 to-surface border border-border p-5 mt-1 rounded-ds-lg shadow-ds-sm transition-all duration-200 hover:border-accent hover:-translate-y-0.5 hover:shadow-glow">
       <div className="flex items-start justify-between mb-3">
         <div className="text-[11px] text-text-3 font-bold uppercase tracking-wider">{label}</div>
         {Icon && (

@@ -77,7 +77,11 @@ export default function ChatBubble({ role, content, isTyping = false, timestamp 
           <p className="text-[14.5px] leading-relaxed text-text-1 whitespace-pre-wrap">{content}</p>
         ) : (
           <div className="text-[14.5px] text-text-1">
-            <ReactMarkdown components={markdownComponents}>{content}</ReactMarkdown>
+                <ReactMarkdown components={markdownComponents}>
+                  {typeof content === "string"
+                    ? content
+                    : JSON.stringify(content, null, 2)}
+                </ReactMarkdown>
           </div>
         )}
 

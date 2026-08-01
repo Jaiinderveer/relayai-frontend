@@ -218,7 +218,6 @@ export default function Analytics() {
             </div>
           </div>
 
-          <hr className="border-border opacity-70" />
 
         </div>
       </div>

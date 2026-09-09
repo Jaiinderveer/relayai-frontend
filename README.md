@@ -1,16 +1,84 @@
-# React + Vite
+# RelayAI — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The React frontend for **RelayAI**, an agentic task-delegation platform. The interface lets users delegate tasks through a chat-driven workflow and monitor calls, contacts, and analytics from a unified dashboard.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Agentic Chat** — describe a task in natural language and send it to the RelayAI backend
+- **Quick Presets** — shortcuts for common actions such as scheduling meetings, calling contacts, and querying pending tasks
+- **Voice Input** — browser voice dictation support where available
+- **Live Monitor** — dedicated UI for monitoring ongoing activity and calls
+- **Analytics** — view application-level activity and performance information
+- **Contacts** — manage the contacts used by delegation and calling workflows
+- Markdown-friendly assistant responses
+- Client-side routing and shared application state
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite
+- React Router
+- Tailwind CSS 4
+- Axios
+- Zustand
+- React Markdown
+- Lucide React
 
-## Expanding the ESLint configuration
+## Application Routes
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Route | Purpose |
+| --- | --- |
+| `/chat` | Agentic task delegation and conversation |
+| `/monitor` | Live activity/call monitoring |
+| `/analytics` | Analytics dashboard |
+| `/contacts` | Contact management |
+
+## Run Locally
+
+```bash
+git clone https://github.com/Jaiinderveer/relayai-frontend.git
+cd relayai-frontend
+npm install
+npm run dev
+```
+
+Open the local Vite URL shown in the terminal.
+
+## Available Scripts
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
+
+## Project Structure
+
+```text
+.
+├── src/
+│   ├── components/   # Reusable UI components
+│   ├── hooks/        # Shared React hooks, including voice input
+│   ├── layouts/      # Application shell/layout
+│   ├── pages/        # Chat, monitor, analytics and contacts screens
+│   ├── services/     # Backend API clients
+│   ├── stores/       # Zustand application state
+│   └── App.jsx       # Application routes
+├── public/           # Static assets
+├── index.html
+├── vite.config.js
+└── package.json
+```
+
+## Backend
+
+This frontend is designed to work with the companion [RelayAI Backend](https://github.com/Jaiinderveer/relayai-backend), which exposes the chat, calling, analytics, and contacts APIs.
+
+## Environment
+
+Configure the API base URL using the environment variables expected by the API service layer in `src/services/` for your local or deployed backend.
+
+## Status
+
+This repository is an actively developed application frontend rather than a Vite starter template.

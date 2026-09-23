@@ -128,7 +128,7 @@ export default function AgenticChat() {
             type="submit"
             disabled={isLoading || !inputValue.trim()}
             aria-label="Send message"
-            className="ds-focus-ring mr-2 w-9 h-9 flex items-center justify-center rounded-full bg-gradient-to-br from-accent to-blue-700 text-white disabled:opacity-40 disabled:grayscale hover:shadow-glow active:scale-90 transition-all duration-150 cursor-pointer"
+            className="ds-focus-ring mr-2 w-9 h-9 flex items-center justify-center rounded-full bg-linear-to-br from-accent to-blue-700 text-white disabled:opacity-40 disabled:grayscale hover:shadow-glow active:scale-90 transition-all duration-150 cursor-pointer"
           >
             <Send size={15} strokeWidth={2.25} />
           </button>
